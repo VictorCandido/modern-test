@@ -1,12 +1,21 @@
 import express, { Request, Response } from 'express';
 import axios from 'axios';
+import cors from 'cors';
 
 const app = express();
+
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 
 app.set('view engine', 'ejs');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+
 
 //  const RECAPTCHA_SECRET_KEY = '6Lef2j0qAAAAAMjCAV21kZFs9acWXqzG4h94ywAM';
 const RECAPTCHA_SECRET_KEY = '6LdB3T0qAAAAAOsTOqWQoYT2YPlMaNypfZJacPrp';
